@@ -1,0 +1,827 @@
+/* Variables CSS para reutilización */
+:root {
+    --color-fondo: #111;
+    --color-texto: #eee;
+    --color-primario: #00ff99;
+    --color-secundario: #ff00ff;
+    --color-card: #2d2d2d;
+    --color-fondo-form: #222;
+    --color-fondo-hover: rgba(0, 255, 255, 0.4);
+    --color-hover: rgba(0, 255, 255, 0.8);
+    --color-titulo: #00ff99;
+    --color-sombra: rgba(0, 255, 255, 0.3);
+    --fuente-principal: 'Roboto', sans-serif;
+    --transicion: 0.3s ease;
+}
+
+/* Estilo base para el cuerpo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fuente-principal);
+}
+
+/* Fondo global */
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* Cabecera */
+.cabecera {
+    background-color: #222;
+    color: var(--color-texto);
+    text-align: center;
+    padding: 30px 20px;
+    box-shadow: 0 4px 10px var(--color-sombra);
+}
+
+.cabecera__logo {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.cabecera__titulo {
+    font-size: 2.5rem;
+    color: var(--color-primario);
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.navegacion__lista {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.navegacion__elemento {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.navegacion__elemento a {
+    color: #aaa;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color var(--transicion);
+}
+
+.navegacion__elemento a:hover {
+    color: var(--color-primario);
+}
+
+/* Sección de Presentación */
+.presentacion {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    justify-content: center;
+    padding: 50px 20px;
+    background-color: #1c1c1c;
+    align-items: center; /* Centra los elementos */
+}
+
+.presentacion__contenedor {
+    text-align: center;
+    margin-bottom: 20px; /* Espacio entre la imagen y el contenido */
+}
+
+.presentacion__foto {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    box-shadow: 0 0 10px var(--color-fondo-hover);
+    margin-bottom: 20px; /* Espacio debajo de la imagen */
+}
+
+.presentacion__contenido {
+    max-width: 600px;
+    text-align: center;
+}
+
+.presentacion__titulo {
+    font-size: 2.5rem;
+    color: var(--color-texto);
+    margin-bottom: 20px;
+}
+
+.presentacion__subtitulo {
+    font-size: 1.3rem;
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+/* Media Queries para hacerlo responsivo */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .cabecera__titulo {
+        font-size: 1.8rem;
+    }
+
+    .navegacion__elemento {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .presentacion__foto {
+        width: 150px;
+        height: 150px;
+    }
+
+    .presentacion__titulo {
+        font-size: 2rem;
+    }
+
+    .presentacion__subtitulo {
+        font-size: 1.1rem;
+    }
+
+    /* Ajuste de padding */
+    .presentacion {
+        padding: 30px 10px;
+    }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (max-width: 768px) {
+    .cabecera__titulo {
+        font-size: 2rem;
+    }
+
+    .navegacion__elemento {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    .presentacion__foto {
+        width: 160px;
+        height: 160px;
+    }
+
+    .presentacion__titulo {
+        font-size: 2.2rem;
+    }
+
+    .presentacion__subtitulo {
+        font-size: 1.2rem;
+    }
+
+    /* Ajuste de padding */
+    .presentacion {
+        padding: 40px 15px;
+    }
+}
+
+/* Pantallas grandes (escritorio) */
+@media (min-width: 1024px) {
+    .cabecera__titulo {
+        font-size: 3rem;
+    }
+
+    .navegacion__elemento {
+        display: inline-block;
+        margin: 0 20px;
+    }
+
+    .presentacion__foto {
+        width: 200px;
+        height: 200px;
+    }
+
+    .presentacion__titulo {
+        font-size: 3rem;
+    }
+
+    .presentacion__subtitulo {
+        font-size: 1.4rem;
+    }
+
+    .presentacion__contenido {
+        max-width: 700px;
+    }
+}
+
+/* Estilo para la sección sobre mí */
+.sobre-mi {
+    padding: 60px 20px;
+    background-color: #1c1c1c;
+    text-align: center;
+}
+
+.sobre-mi__titulo {
+    font-size: 2rem;
+    color: var(--color-primario);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.sobre-mi__cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.sobre-mi__card {
+    background-color: var(--color-card);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--color-fondo-hover);
+    max-width: 450px;
+    width: 100%;
+    transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.sobre-mi__card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--color-hover);
+}
+
+.sobre-mi__texto {
+    color: #aaa;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Media Queries para la sección "Sobre mí" */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .sobre-mi__titulo {
+        font-size: 1.5rem;
+    }
+
+    .sobre-mi__cards {
+        gap: 15px;
+    }
+
+    .sobre-mi__card {
+        padding: 20px;
+    }
+
+    .sobre-mi__texto {
+        font-size: 1rem;
+    }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (max-width: 768px) {
+    .sobre-mi__cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .sobre-mi__card {
+        max-width: 400px;
+    }
+}
+
+/* Pantallas grandes (escritorio) */
+@media (min-width: 1024px) {
+    .sobre-mi__titulo {
+        font-size: 2.5rem;
+    }
+
+    .sobre-mi__cards {
+        gap: 30px;
+    }
+
+    .sobre-mi__card {
+        max-width: 450px;
+    }
+
+    .sobre-mi__texto {
+        font-size: 1.1rem;
+    }
+}
+
+/* Sección Habilidades */
+.habilidades {
+    background-color: #1c1c1c;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.habilidades__titulo {
+    font-size: 2rem;
+    color: var(--color-primario);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.habilidades__lista {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.habilidades__elemento {
+    width: 120px;
+    text-align: center;
+    background-color: var(--color-card);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--color-fondo-hover);
+    transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.habilidades__elemento:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px var(--color-hover);
+}
+
+.habilidades__icono {
+    width: 60px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.habilidades__elemento figcaption {
+    color: #aaa;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* Media Queries para la sección "Habilidades" */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .habilidades__titulo {
+        font-size: 1.5rem;
+    }
+
+    .habilidades__lista {
+        gap: 15px;
+    }
+
+    .habilidades__elemento {
+        width: 100px;
+        padding: 15px;
+    }
+
+    .habilidades__icono {
+        width: 50px;
+    }
+
+    .habilidades__elemento figcaption {
+        font-size: 1rem;
+    }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (max-width: 768px) {
+    .habilidades__titulo {
+        font-size: 1.8rem;
+    }
+
+    .habilidades__elemento {
+        width: 120px;
+    }
+
+    .habilidades__icono {
+        width: 55px;
+    }
+}
+
+/* Pantallas grandes (escritorio) */
+@media (min-width: 1024px) {
+    .habilidades__titulo {
+        font-size: 2rem;
+    }
+
+    .habilidades__lista {
+        gap: 30px;
+    }
+
+    .habilidades__elemento {
+        width: 120px;
+        padding: 20px;
+    }
+
+    .habilidades__icono {
+        width: 60px;
+    }
+
+    .habilidades__elemento figcaption {
+        font-size: 1.1rem;
+    }
+}
+/* Sección Formación académica */
+.formacion {
+    background-color: #1c1c1c;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.formacion__titulo {
+    font-size: 2rem;
+    color: var(--color-primario);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.formacion__lista {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.formacion__elemento {
+    width: 200px;
+    text-align: center;
+    transition: transform var(--transicion), box-shadow var(--transicion);
+    background-color: var(--color-card);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px var(--color-fondo-hover);
+}
+
+.formacion__elemento:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--color-hover);
+}
+
+.formacion__icono {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.formacion__elemento figcaption {
+    color: #aaa;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* Media Queries para la sección "Formación académica" */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .formacion__titulo {
+        font-size: 1.5rem;
+    }
+
+    .formacion__elemento {
+        width: 150px;
+        padding: 15px;
+    }
+
+    .formacion__icono {
+        width: 60px;
+    }
+
+    .formacion__elemento figcaption {
+        font-size: 0.9rem;
+    }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (max-width: 768px) {
+    .formacion__titulo {
+        font-size: 1.8rem;
+    }
+
+    .formacion__elemento {
+        width: 180px;
+        padding: 18px;
+    }
+
+    .formacion__icono {
+        width: 70px;
+    }
+}
+
+/* Pantallas grandes (escritorio) */
+@media (min-width: 1024px) {
+    .formacion__titulo {
+        font-size: 2rem;
+    }
+
+    .formacion__elemento {
+        width: 200px;
+    }
+
+    .formacion__icono {
+        width: 80px;
+    }
+}
+
+/* Sección Proyectos */
+.proyectos {
+    background-color: #1c1c1c;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.proyectos__titulo {
+    font-size: 2rem;
+    color: var(--color-primario);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.proyectos__contenedor {
+    background-color: var(--color-card);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px var(--color-fondo-hover);
+    transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.proyectos__contenedor:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--color-hover);
+}
+
+.proyectos__nombre {
+    font-size: 1.8rem;
+    color: var(--color-primario);
+    margin-bottom: 10px;
+}
+
+.proyectos__descripcion {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.proyectos__botones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.proyectos__btn {
+    background: linear-gradient(45deg, var(--color-primario), var(--color-secundario));
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background var(--transicion);
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.proyectos__btn:hover {
+    background: linear-gradient(45deg, var(--color-secundario), var(--color-primario));
+    box-shadow: 0 0 10px var(--color-fondo-hover);
+}
+
+.proyectos__btn--secundario {
+    background-color: #444;
+}
+
+/* Media Queries para la sección "Proyectos" */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .proyectos__titulo {
+        font-size: 1.5rem;
+    }
+
+    .proyectos__contenedor {
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .proyectos__nombre {
+        font-size: 1.5rem;
+    }
+
+    .proyectos__descripcion {
+        font-size: 1rem;
+    }
+
+    .proyectos__botones {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (max-width: 768px) {
+    .proyectos__titulo {
+        font-size: 1.8rem;
+    }
+
+    .proyectos__contenedor {
+        padding: 22px;
+    }
+
+    .proyectos__nombre {
+        font-size: 1.7rem;
+    }
+
+    .proyectos__descripcion {
+        font-size: 1.05rem;
+    }
+
+    .proyectos__botones {
+        gap: 15px;
+    }
+}
+
+/* Pantallas grandes (escritorio) */
+@media (min-width: 1024px) {
+    .proyectos__titulo {
+        font-size: 2rem;
+    }
+
+    .proyectos__contenedor {
+        padding: 25px;
+    }
+
+    .proyectos__nombre {
+        font-size: 1.8rem;
+    }
+
+    .proyectos__descripcion {
+        font-size: 1.1rem;
+    }
+
+    .proyectos__botones {
+        gap: 20px;
+    }
+}
+
+
+/* Sección Contacto */
+.contacto {
+    background-color: #1c1c1c;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contacto__titulo {
+    font-size: 2rem;
+    color: var(--color-primario);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.contacto__contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+}
+
+.contacto__imagen {
+    width: 300px;
+    margin-right: 40px;
+}
+
+.contacto__formulario {
+    max-width: 400px;
+    width: 100%;
+    text-align: left;
+}
+
+.contacto__label {
+    display: block;
+    color: var(--color-texto);
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contacto__input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: var(--color-fondo-form);
+    color: var(--color-texto);
+    font-size: 1.1rem;
+    transition: border var(--transicion);
+}
+
+.contacto__input:focus {
+    border-color: var(--color-primario);
+    outline: none;
+}
+
+.contacto__boton {
+    padding: 12px 20px;
+    background-color: var(--color-primario);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background var(--transicion);
+    display: inline-block;
+}
+
+.contacto__boton:hover {
+    background-color: var(--color-secundario);
+}
+
+/* Pie de página */
+.footer {
+    background-color: var(--color-fondo);
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+    font-size: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries para la sección "Contacto" */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .contacto__titulo {
+        font-size: 1.5rem;
+    }
+
+    .contacto__contenedor {
+        flex-direction: column; /* Los elementos se alinean verticalmente */
+        align-items: center;
+    }
+
+    .contacto__imagen {
+        width: 250px;
+        margin-right: 0;
+        margin-bottom: 20px; /* Añade espacio entre la imagen y el formulario */
+    }
+
+    .contacto__formulario {
+        max-width: 100%;
+    }
+
+    .contacto__input {
+        font-size: 1rem;
+    }
+
+    .contacto__boton {
+        width: 100%;
+    }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (max-width: 768px) {
+    .contacto__titulo {
+        font-size: 1.8rem;
+    }
+
+    .contacto__imagen {
+        width: 280px;
+        margin-right: 30px;
+    }
+
+    .contacto__formulario {
+        max-width: 100%;
+    }
+}
+
+/* Pantallas grandes (escritorio) */
+@media (min-width: 1024px) {
+    .contacto__titulo {
+        font-size: 2rem;
+    }
+
+    .contacto__imagen {
+        width: 300px;
+    }
+
+    .contacto__formulario {
+        max-width: 400px;
+    }
+}
+
+/* Media Queries para el pie de página */
+
+/* En pantallas pequeñas, el texto del pie de página se adapta */
+@media (max-width: 600px) {
+    .footer {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+}
+
+/* Pantallas medianas */
+@media (max-width: 768px) {
+    .footer {
+        font-size: 1rem;
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1024px) {
+    .footer {
+        font-size: 1.1rem;
+    }
+}
