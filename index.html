@@ -12,7 +12,7 @@
     <header class="cabecera">
         <img class="cabecera__logo" src="assets/vector.png" alt="Logo de Alejandro Hernández">
         <p>Alex Aranda</p>
-        <h1 class="cabecera__titulo">Portafolio</h1>
+        <h1 class="cabecera__titulo" id ="portafolio">Portafolio</h1>
         <nav class="navegacion">
             <ul class="navegacion__lista">
                 <li class="navegacion__elemento"><a href="#sobre-mi">Sobre mí</a></li>
@@ -33,7 +33,7 @@
                 <figcaption class="presentacion__descripcion"></figcaption>
             </figure>
             <div class="presentacion__contenido">
-                <h1 class="presentacion__titulo">Hola, mi nombre es Alejandro Hernández y construyo páginas web</h1>
+                <h1 class="presentacion__titulo">Hola, mi nombre es Alejandro Hernández y creo sitios web</h1>
                 <p class="presentacion__subtitulo">Soy Ingeniero en desarrollo de software y actualmente estoy participando en el proyecto Oracle ONE de Alura Latam.</p>
                 <ul class="redes">
                     <li class="navegacion__elemento">
@@ -84,13 +84,13 @@
                 <li class="habilidades__elemento">
                     <figure>
                         <i class="fab fa-html5 habilidades__icono"></i> <!-- Icono de HTML5 -->
-                        <figcaption>HTML 5</figcaption>
+                        <figcaption>HTML</figcaption>
                     </figure>
                 </li>
                 <li class="habilidades__elemento">
                     <figure>
                         <i class="fab fa-css3-alt habilidades__icono"></i> <!-- Icono de CSS -->
-                        <figcaption>CSS3</figcaption>
+                        <figcaption>CSS</figcaption>
                     </figure>
                 </li>                 
                 <li class="habilidades__elemento">
@@ -107,9 +107,9 @@
                 </li>             
                 <li class="habilidades__elemento">
                     <figure>
-                        <i class="fab fa-node habilidades__icono"></i> <!-- Icono de Node.js -->
-                        <figcaption>Node.js</figcaption>
-                    </figure>
+                        <i class="fab fa-php habilidades__icono"></i> <!-- Icono de PHP -->
+                        <figcaption>PHP</figcaption>
+                    </figure>                    
                 </li>
               
                 <li class="habilidades__elemento">
@@ -183,23 +183,37 @@
     <section class="contacto" id="contacto">
         <h2 class="contacto__titulo">Contacto</h2>
         <div class="contacto__contenedor">
-            <img class="contacto__imagen" src="assets/contact_image.png" alt="Imagen de contacto">
+            <img class="contacto__imagen" src="assets/telefono.jpg" alt="Imagen de contacto">
             <form action="" method="post" class="contacto__formulario" aria-labelledby="contacto-titulo">
                 <h3 id="contacto-titulo" class="sr-only">Formulario de contacto</h3>
+                
+                <!-- Campo Nombre -->
                 <label for="nombre" class="contacto__label">Nombre</label>
                 <input id="nombre" name="nombre" type="text" class="contacto__input" aria-required="true" aria-label="Introduce tu nombre">
-        
+            
+                <!-- Campo Email -->
                 <label for="email" class="contacto__label">Email</label>
                 <input id="email" name="email" type="email" class="contacto__input" aria-required="true" aria-label="Introduce tu correo electrónico">
-        
+            
+                <!-- Campo Teléfono -->
+                <label for="telefono" class="contacto__label">Teléfono</label>
+                <input id="telefono" name="telefono" type="tel" class="contacto__input" aria-label="Introduce tu número de teléfono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+            
+                <!-- Campo Mensaje -->
                 <label for="mensaje" class="contacto__label">Mensaje</label>
                 <textarea id="mensaje" name="mensaje" class="contacto__input" aria-required="true" aria-label="Escribe tu mensaje"></textarea>
-        
+            
                 <button type="submit" class="contacto__boton contacto__boton--grande">Enviar mensaje</button>
+    
+                <!-- Botón para regresar al menú principal -->
+                <a href="#portafolio">
+                    <button type="button" class="contacto__boton regresar__boton--grande">Regresar al menú</button>
+                </a>
+                
             </form>
         </div>
-    </section>
+    </section>  
     
-    <footer class="footer">Desarrollado por Alejandro Hernández 2024</footer>
+    <footer class="footer">Desarrollado por Alejandro Hernández 2025</footer>
 </body>
 </html>
