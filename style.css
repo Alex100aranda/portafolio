@@ -831,10 +831,10 @@ body {
 
 /* Modificación para separar los dos botones en el formulario de contacto */
 .contacto__boton {
-    margin-right: 17px; /* Añade espacio a la derecha del botón "Enviar mensaje" */
+    margin-right: 16px; /* Añade espacio a la derecha del botón "Enviar mensaje" */
 }
 
 /* Solo para el botón "Regresar al menú", si es necesario */
 .regresar__boton--grande {
-    margin-left: 17.5px; /* Añade espacio a la izquierda del botón "Regresar al menú" */
+    margin-left: 16px; /* Añade espacio a la izquierda del botón "Regresar al menú" */
 }
