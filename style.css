@@ -514,32 +514,46 @@ body {
     }
 }
 
-/* Sección Proyectos */
+/* Sección de Proyectos */
 .proyectos {
-    background-color: #1c1c1c;
     padding: 60px 20px;
+    background-color: #111;
     text-align: center;
 }
 
 .proyectos__titulo {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--color-primario);
-    text-transform: uppercase;
     margin-bottom: 40px;
 }
 
 .proyectos__contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.proyectos__item {
     background-color: var(--color-card);
-    padding: 25px;
     border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 20px var(--color-fondo-hover);
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 0 10px var(--color-sombra);
     transition: transform var(--transicion), box-shadow var(--transicion);
 }
 
-.proyectos__contenedor:hover {
+.proyectos__item:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 30px var(--color-hover);
+    box-shadow: 0 0 20px var(--color-hover);
+}
+
+.proyectos__imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .proyectos__nombre {
@@ -549,36 +563,25 @@ body {
 }
 
 .proyectos__descripcion {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #aaa;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    line-height: 1.5;
 }
 
-.proyectos__botones {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.proyectos__btn {
-    background: linear-gradient(45deg, var(--color-primario), var(--color-secundario));
-    padding: 12px 20px;
-    color: white;
-    text-decoration: none;
+.proyectos__enlace {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: var(--color-primario);
     border-radius: 5px;
-    transition: background var(--transicion);
-    margin-right: 10px;
-    font-weight: bold;
-    text-align: center;
+    text-decoration: none;
+    transition: background-color var(--transicion);
 }
 
-.proyectos__btn:hover {
-    background: linear-gradient(45deg, var(--color-secundario), var(--color-primario));
-    box-shadow: 0 0 10px var(--color-fondo-hover);
-}
-
-.proyectos__btn--secundario {
-    background-color: #444;
+.proyectos__enlace:hover {
+    background-color: var(--color-hover);
 }
 
 /* Media Queries para la sección "Proyectos" */
@@ -586,12 +589,15 @@ body {
 /* Pantallas pequeñas (móviles) */
 @media (max-width: 600px) {
     .proyectos__titulo {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .proyectos__contenedor {
-        padding: 20px;
-        margin-bottom: 15px;
+        gap: 20px;
+    }
+
+    .proyectos__item {
+        width: 250px;
     }
 
     .proyectos__nombre {
@@ -599,46 +605,55 @@ body {
     }
 
     .proyectos__descripcion {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
-    .proyectos__botones {
-        flex-direction: column;
-        gap: 10px;
+    .proyectos__enlace {
+        font-size: 0.9rem;
+        padding: 8px 18px;
     }
 }
 
 /* Pantallas medianas (tabletas) */
 @media (max-width: 768px) {
     .proyectos__titulo {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
     }
 
     .proyectos__contenedor {
-        padding: 22px;
+        gap: 25px;
+    }
+
+    .proyectos__item {
+        width: 270px;
     }
 
     .proyectos__nombre {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
 
     .proyectos__descripcion {
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 
-    .proyectos__botones {
-        gap: 15px;
+    .proyectos__enlace {
+        font-size: 1rem;
+        padding: 9px 19px;
     }
 }
 
 /* Pantallas grandes (escritorio) */
 @media (min-width: 1024px) {
     .proyectos__titulo {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .proyectos__contenedor {
-        padding: 25px;
+        gap: 30px;
+    }
+
+    .proyectos__item {
+        width: 300px;
     }
 
     .proyectos__nombre {
@@ -649,8 +664,8 @@ body {
         font-size: 1.1rem;
     }
 
-    .proyectos__botones {
-        gap: 20px;
+    .proyectos__enlace {
+        font-size: 1.1rem;
     }
 }
 
@@ -711,6 +726,7 @@ body {
     outline: none;
 }
 
+/* Estilo de los botones */
 .contacto__boton {
     padding: 12px 20px;
     background-color: var(--color-primario);
@@ -721,11 +737,29 @@ body {
     text-decoration: none;
     transition: background var(--transicion);
     display: inline-block;
+    margin-bottom: 15px; /* Separa los botones */
 }
 
+/* Efecto hover de los botones */
 .contacto__boton:hover {
     background-color: var(--color-secundario);
 }
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+    .contacto__contenedor {
+        flex-direction: column; /* Los botones se alinearán verticalmente */
+        align-items: center; /* Centra los botones */
+        justify-content: center; /* Alinea los botones a la misma altura */
+        height: 100%; /* Asegura que el contenedor ocupe el 100% de la altura */
+    }
+
+    .contacto__boton {
+        width: 80%; /* Hace que los botones sean más anchos en pantallas pequeñas */
+    }
+}
+
+
 
 /* Pie de página */
 .footer {
