@@ -745,63 +745,30 @@ body {
     background-color: var(--color-secundario);
 }
 
+/* Contenedor de los botones para alinear */
+.contacto__botones {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 1rem; /* Espacio entre los botones */
+    margin-top: 1rem; /* Espacio encima de los botones */
+    flex-wrap: wrap; /* Los botones se apilarán si el espacio es insuficiente */
+}
+
 /* Media query para pantallas pequeñas (móviles) */
 @media (max-width: 767px) {
     .contacto__contenedor {
-        flex-direction: column; /* Los botones se alinearán verticalmente */
-        align-items: center; /* Centra los botones */
-        justify-content: center; /* Alinea los botones a la misma altura */
-        height: 100%; /* Asegura que el contenedor ocupe el 100% de la altura */
+        flex-direction: column; /* Los elementos se alinean verticalmente */
+        align-items: center; /* Centra los elementos */
+        justify-content: center; /* Alinea los elementos a la misma altura */
+    }
+
+    .contacto__botones {
+        flex-direction: column; /* Los botones se apilarán en pantallas pequeñas */
+        align-items: center; /* Centra los botones verticalmente */
     }
 
     .contacto__boton {
         width: 80%; /* Hace que los botones sean más anchos en pantallas pequeñas */
-    }
-}
-
-
-
-/* Pie de página */
-.footer {
-    background-color: var(--color-fondo);
-    text-align: center;
-    padding: 20px;
-    color: #aaa;
-    font-size: 1rem;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Media Queries para la sección "Contacto" */
-
-/* Pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
-    .contacto__titulo {
-        font-size: 1.5rem;
-    }
-
-    .contacto__contenedor {
-        flex-direction: column; /* Los elementos se alinean verticalmente */
-        align-items: center;
-    }
-
-    .contacto__imagen {
-        width: 250px;
-        margin-right: 0;
-        margin-bottom: 40px; /* Añade espacio entre la imagen y el formulario */
-    }
-
-    .contacto__formulario {
-        max-width: 100%;
-    }
-
-    .contacto__input {
-        font-size: 1rem;
-    }
-
-    .contacto__boton {
-        width: 100%;
     }
 }
 

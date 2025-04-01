@@ -161,23 +161,23 @@
                 <div class="proyectos__item">
                     <img src="assets/proyecto2.png" alt="Proyecto 2" class="proyectos__imagen">
                     <h3 class="proyectos__nombre">Tienda Candle Coven</h3>
-                    <p class="proyectos__descripcion">Tienda de ropa, catalogo con HTML</p>
+                    <p class="proyectos__descripcion">Tienda de ropa, catalogo con HTML y css</p>
                     <a href="https://candle-eight.vercel.app/" class="proyectos__enlace" target="_blank">Ver Proyecto</a>
                 </div>
         
                 <!-- Proyecto 3 -->
                 <div class="proyectos__item">
-                    <img src="assets/proyecto1.png" alt="Proyecto 3" class="proyectos__imagen">
-                    <h3 class="proyectos__nombre">Proyecto 3</h3>
-                    <p class="proyectos__descripcion">Detalles sobre este proyecto, sus objetivos y resultados obtenidos.</p>
-                    <a href="http://masteralex.fwh.is/index.php" class="proyectos__enlace" target="_blank">Ver Proyecto</a>
+                    <img src="assets/proyecto3.png" alt="Proyecto 3" class="proyectos__imagen">
+                    <h3 class="proyectos__nombre">Proyecto Revista Digital</h3>
+                    <p class="proyectos__descripcion">Revista diseñada con herramientas digitales</p>
+                    <a href="https://revista-rose.vercel.app/" class="proyectos__enlace" target="_blank">Ver Proyecto</a>
                 </div>
                  <!-- Proyecto 3 -->
                  <div class="proyectos__item">
-                    <img src="assets/proyecto1.png" alt="Proyecto 3" class="proyectos__imagen">
+                    <img src="#" alt="Proyecto 3" class="proyectos__imagen">
                     <h3 class="proyectos__nombre">Proyecto 3</h3>
                     <p class="proyectos__descripcion">Detalles sobre este proyecto, sus objetivos y resultados obtenidos.</p>
-                    <a href="http://masteralex.fwh.is/index.php" class="proyectos__enlace" target="_blank">Ver Proyecto</a>
+                    <a href="#" class="proyectos__enlace" target="_blank">Ver Proyecto</a>
                 </div>
                  <!-- Proyecto 3 -->
                  <div class="proyectos__item">
@@ -213,40 +213,38 @@
         
     </main>
 
-    <!-- Sección de Contacto -->
-    <section class="contacto" id="contacto">
-        <h2 class="contacto__titulo">Contacto</h2>
-        <div class="contacto__contenedor">
-            <img class="contacto__imagen" src="assets/telefono.jpg" alt="Imagen de contacto">
-            <form action="" method="post" class="contacto__formulario" aria-labelledby="contacto-titulo">
-                <h3 id="contacto-titulo" class="sr-only">Formulario de contacto</h3>
-                
-                <!-- Campo Nombre -->
-                <label for="nombre" class="contacto__label">Nombre</label>
-                <input id="nombre" name="nombre" type="text" class="contacto__input" aria-required="true" aria-label="Introduce tu nombre">
+   <!-- Sección de Contacto -->
+<section class="contacto" id="contacto">
+    <h2 class="contacto__titulo">Contacto</h2>
+    <div class="contacto__contenedor">
+        <img class="contacto__imagen" src="assets/telefono.jpg" alt="Imagen de contacto">
+        <form action="" method="post" class="contacto__formulario" aria-labelledby="contacto-titulo">
+            <h3 id="contacto-titulo" class="sr-only">Formulario de contacto</h3>
             
-                <!-- Campo Email -->
-                <label for="email" class="contacto__label">Email</label>
-                <input id="email" name="email" type="email" class="contacto__input" aria-required="true" aria-label="Introduce tu correo electrónico">
-            
-                <!-- Campo Teléfono -->
-                <label for="telefono" class="contacto__label">Teléfono</label>
-                <input id="telefono" name="telefono" type="tel" class="contacto__input" aria-label="Introduce tu número de teléfono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
-            
-                <!-- Campo Mensaje -->
-                <label for="mensaje" class="contacto__label">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" class="contacto__input" aria-required="true" aria-label="Escribe tu mensaje"></textarea>
-            
+            <!-- Campo Nombre -->
+            <label for="nombre" class="contacto__label">Nombre</label>
+            <input id="nombre" name="nombre" type="text" class="contacto__input" aria-required="true" aria-label="Introduce tu nombre">
+        
+            <!-- Campo Email -->
+            <label for="email" class="contacto__label">Email</label>
+            <input id="email" name="email" type="email" class="contacto__input" aria-required="true" aria-label="Introduce tu correo electrónico">
+        
+            <!-- Campo Teléfono -->
+            <label for="telefono" class="contacto__label">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" class="contacto__input" aria-label="Introduce tu número de teléfono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+        
+            <!-- Campo Mensaje -->
+            <label for="mensaje" class="contacto__label">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" class="contacto__input" aria-required="true" aria-label="Escribe tu mensaje"></textarea>
+        
+            <div class="contacto__botones">
                 <button type="submit" class="contacto__boton contacto__boton--grande">Enviar mensaje</button>
-    
-                <!-- Botón para regresar al menú principal -->
-                <a href="#portafolio">
-                    <button type="button" class="contacto__boton regresar__boton--grande">Regresar al menú</button>
-                </a>
-                
-            </form>
-        </div>
-    </section>  
+                <button type="button" class="contacto__boton regresar__boton--grande" onclick="location.href='#portafolio'">Regresar al menú</button>
+            </div>
+        </form>
+    </div>
+</section>
+
 
     <script src="script.js"></script>
     
