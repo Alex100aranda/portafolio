@@ -5,448 +5,501 @@
     --color-primario: #00ff99;
     --color-secundario: #ff00ff;
     --color-card: #2d2d2d;
-    --color-fondo-form: #222;
-    --color-fondo-hover: rgba(0, 255, 255, 0.4);
+    --color-form: #222;
     --color-hover: rgba(0, 255, 255, 0.8);
-    --color-titulo: #00ff99;
+    --color-hover-bg: rgba(0, 255, 255, 0.4);
+    --color-titulo: var(--color-primario);
     --color-sombra: rgba(0, 255, 255, 0.3);
     --fuente-principal: 'Roboto', sans-serif;
     --transicion: 0.3s ease;
-}
-
-/* Estilo base para el cuerpo */
-* {
+  }
+  
+  /* Reset y fuente global */
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: var(--fuente-principal);
-}
-
-/* Fondo global */
-body {
+  }
+  
+  body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
     line-height: 1.6;
+  }
+
+/* Botón hamburguesa */
+.menu__hamburguesa {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 20; /* Z-index más alto para el botón hamburguesa */
 }
 
+  .menu__hamburguesa {
+    z-index: 1001; /* Un valor mayor para que esté por encima del menú */
+  }
   
+  .menu__linea {
+    width: 25px;
+    height: 3px;
+    background-color: #00ff99;
+    transition: 0.3s;
+  }
+  
+  /* Estilos para pantallas móviles */
+  @media (max-width: 768px) {
 
-/* Animacion para los titulos */
 
-.animate-right-to-left {
-    animation: slideInRight 0.6s ease-out forwards;
-}
-
-@keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
+    /* Menú de navegación */
+    .navegacion {
+      display: none; /* Menú oculto por defecto */
+      position: fixed; /* Fijamos el menú en la parte superior */
+      top: -100%; /* Lo colocamos fuera de la pantalla al inicio */
+      left: 0;
+      background: whitesmoke;
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 10; /* Z-index mayor que el resto de las secciones */
+      transition: top 0.3s ease-in-out; /* Transición suave para el efecto de deslizamiento */
     }
-    to {
-        transform: translateX(0);
-        opacity: 1;
+      /* Cuando el menú está activo */
+      .navegacion.activa {
+        display: block;
+        top: 0; /* El menú se desliza desde la parte superior */
+      }
+      
+  
+    /* Lista de elementos en el menú */
+    .navegacion__lista {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
-}
-
-
-
+  
+    /* Estilos de los enlaces en el menú */
+    .navegacion__elemento a {
+      color: #000;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+  
+    /* Mostrar el botón hamburguesa en pantallas pequeñas */
+    .menu__hamburguesa {
+      display: flex;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+  
 /* Cabecera */
 .cabecera {
-    background-color: #222;
+    background-color: var(--color-form);
     color: var(--color-texto);
     text-align: center;
     padding: 30px 20px;
     box-shadow: 0 4px 10px var(--color-sombra);
-}
-
-.cabecera__logo {
+    position: relative; /* Necesario para que z-index funcione */
+    z-index: 10; /* Asegúrate de que la cabecera tenga un z-index mayor que el menú */
+  }
+  
+  .cabecera__logo {
     width: 60px;
     margin-bottom: 10px;
-}
-
-.cabecera__titulo {
+  }
+  
+  .cabecera__titulo {
     font-size: 2.5rem;
-    color: var(--color-primario);
+    color: var(--color-titulo);
     text-transform: uppercase;
     margin: 10px 0;
-}
-
-.navegacion__lista {
+  }
+  
+  .navegacion__lista {
     list-style: none;
     margin-top: 20px;
-}
-
-.navegacion__elemento {
+  }
+  
+  .navegacion__elemento {
     display: inline-block;
     margin: 0 15px;
-}
-
-.navegacion__elemento a {
+  }
+  
+  .navegacion__elemento a {
     color: #aaa;
     font-size: 1.1rem;
     text-decoration: none;
     text-transform: uppercase;
     transition: color var(--transicion);
-}
-
-.navegacion__elemento a:hover {
+  }
+  
+  .navegacion__elemento a:hover {
     color: var(--color-primario);
-}
-
-/* Sección de Presentación */
-.presentacion {
+  }
+  
+  /* Presentación */
+  .presentacion {
     display: flex;
-    flex-direction: column; /* Alinea los elementos en columna */
+    flex-direction: column;
     justify-content: center;
     padding: 50px 20px;
     background-color: #1c1c1c;
-    align-items: center; /* Centra los elementos */
-}
-
-.presentacion__contenedor {
+    align-items: center;
+    z-index: 1; /* Z-index bajo para que el menú esté por encima */
+    position: relative; /* Importante para que z-index funcione correctamente */ 
+  }
+  
+  .presentacion__contenedor {
     text-align: center;
-    margin-bottom: 20px; /* Espacio entre la imagen y el contenido */
-}
-
+    margin-bottom: 20px;
+  }
+  
+ /* Foto de la sección */
 .presentacion__foto {
-    border-radius: 50%;
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    box-shadow: 0 0 10px var(--color-fondo-hover);
-    margin-bottom: 20px; /* Espacio debajo de la imagen */
+  position: relative;
+  z-index: 1; /* Evita que la foto quede encima del menú */
 }
-
-.presentacion__contenido {
+  
+  .presentacion__contenido {
     max-width: 600px;
     text-align: center;
-}
-
-.presentacion__titulo {
+  }
+  
+  .presentacion__titulo {
     font-size: 2.5rem;
     color: var(--color-texto);
     margin-bottom: 20px;
-}
-
-.presentacion__subtitulo {
+  }
+  
+  .presentacion__subtitulo {
     font-size: 1.3rem;
     color: #aaa;
     margin-bottom: 30px;
-}
-
-/* Media Queries para hacerlo responsivo */
-
-/* Pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
+  }
+  
+  .redes {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .redes__item a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    color: var(--color-texto);
+    background-color: var(--color-card);
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px var(--color-sombra);
+    transition: background-color var(--transicion), transform var(--transicion);
+  }
+  
+  .redes__item a:hover {
+    background-color: var(--color-hover);
+    color: var(--color-fondo);
+    transform: translateY(-3px);
+  }
+  
+  .redes__item i {
+    font-size: 1.3rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
     .cabecera__titulo {
-        font-size: 1.8rem;
+      font-size: 1.8rem;
     }
-
     .navegacion__elemento {
-        display: block;
-        margin: 10px 0;
+      display: block;
+      margin: 10px 0;
     }
-
     .presentacion__foto {
-        width: 150px;
-        height: 150px;
+      width: 150px;
+      height: 150px;
     }
-
     .presentacion__titulo {
-        font-size: 2rem;
+      font-size: 2rem;
     }
-
     .presentacion__subtitulo {
-        font-size: 1.1rem;
+      font-size: 1.1rem;
     }
-
-    /* Ajuste de padding */
     .presentacion {
-        padding: 30px 10px;
+      padding: 30px 10px;
     }
-}
-
-/* Pantallas medianas (tabletas) */
-@media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
     .cabecera__titulo {
-        font-size: 2rem;
+      font-size: 2rem;
     }
-
     .navegacion__elemento {
-        display: inline-block;
-        margin: 0 10px;
+      margin: 0 10px;
     }
-
     .presentacion__foto {
-        width: 160px;
-        height: 160px;
+      width: 160px;
+      height: 160px;
     }
-
     .presentacion__titulo {
-        font-size: 2.2rem;
+      font-size: 2.2rem;
     }
-
     .presentacion__subtitulo {
-        font-size: 1.2rem;
+      font-size: 1.2rem;
     }
-
-    /* Ajuste de padding */
     .presentacion {
-        padding: 40px 15px;
+      padding: 40px 15px;
     }
-}
-
-/* Pantallas grandes (escritorio) */
-@media (min-width: 1024px) {
+  }
+  
+  @media (min-width: 1024px) {
     .cabecera__titulo {
-        font-size: 3rem;
+      font-size: 3rem;
     }
-
     .navegacion__elemento {
-        display: inline-block;
-        margin: 0 20px;
+      margin: 0 20px;
     }
-
     .presentacion__foto {
-        width: 200px;
-        height: 200px;
+      width: 200px;
+      height: 200px;
     }
-
     .presentacion__titulo {
-        font-size: 3rem;
+      font-size: 3rem;
     }
-
     .presentacion__subtitulo {
-        font-size: 1.4rem;
+      font-size: 1.4rem;
     }
-
     .presentacion__contenido {
-        max-width: 700px;
+      max-width: 700px;
     }
-}
-
-/* Estilo para la sección sobre mí */
+  }
+  
+/* Estilo base */
 .sobre-mi {
     padding: 60px 20px;
-    background-color: #1c1c1c;
+    background-color: #1a1a1a;
     text-align: center;
-}
-
-.sobre-mi__titulo {
-    font-size: 2rem;
-    color: var(--color-primario);
-    text-transform: uppercase;
+  }
+  
+  .sobre-mi__titulo {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     margin-bottom: 40px;
-}
-
-.sobre-mi__cards {
+    color: var(--color-titulo);
+    position: relative;
+  }
+  
+  .sobre-mi__cards {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.sobre-mi__card {
+    flex-direction: column;
+    gap: 30px;
+    align-items: stretch;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .sobre-mi__card {
     background-color: var(--color-card);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px var(--color-fondo-hover);
-    max-width: 450px;
-    width: 100%;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--color-sombra);
     transition: transform var(--transicion), box-shadow var(--transicion);
-}
-
-.sobre-mi__card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px var(--color-hover);
-}
-
-.sobre-mi__texto {
-    color: #aaa;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .sobre-mi__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--color-hover);
+  }
+  
+  .sobre-mi__texto {
     font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-/* Media Queries para la sección "Sobre mí" */
-
-/* Pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
+    color: var(--color-texto);
+    line-height: 1.7;
+  }
+  
+  /* Móviles (hasta 600px) */
+  @media (max-width: 600px) {
     .sobre-mi__titulo {
-        font-size: 1.5rem;
+      font-size: 1.5rem;
     }
-
+  
     .sobre-mi__cards {
-        gap: 15px;
+      gap: 20px;
     }
-
-    .sobre-mi__card {
-        padding: 20px;
-    }
-
+  
     .sobre-mi__texto {
-        font-size: 1rem;
+      font-size: 1rem;
     }
-}
-
-/* Pantallas medianas (tabletas) */
-@media (max-width: 768px) {
+  }
+  
+  /* Tabletas (601px a 1023px) */
+  @media (min-width: 601px) and (max-width: 1023px) {
     .sobre-mi__cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
     }
-
+  
     .sobre-mi__card {
-        max-width: 400px;
+      max-width: 500px;
+      width: 100%;
     }
-}
-
-/* Pantallas grandes (escritorio) */
-@media (min-width: 1024px) {
-    .sobre-mi__titulo {
-        font-size: 2.5rem;
-    }
-
+  }
+  
+  /* Escritorio (a partir de 1024px) */
+  @media (min-width: 1024px) {
     .sobre-mi__cards {
-        gap: 30px;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 50px;
     }
-
+  
     .sobre-mi__card {
-        max-width: 450px;
+      width: 45%;
+      max-width: 450px;
     }
-
-    .sobre-mi__texto {
-        font-size: 1.1rem;
-    }
-}
-
+  }
+  
 /* Sección Habilidades */
 .habilidades {
     background-color: #1c1c1c;
     padding: 60px 20px;
     text-align: center;
-}
-
-.habilidades__titulo {
-    font-size: 2rem;
+  }
+  
+  .habilidades__titulo {
+    font-size: clamp(1.5rem, 4vw, 2rem);
     color: var(--color-primario);
     text-transform: uppercase;
     margin-bottom: 40px;
-}
-
-.habilidades__lista {
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .habilidades__lista {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
-}
-
-.habilidades__elemento {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .habilidades__elemento {
     width: 120px;
-    text-align: center;
     background-color: var(--color-card);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px var(--color-fondo-hover);
+    text-align: center;
     transition: transform var(--transicion), box-shadow var(--transicion);
-}
-
-.habilidades__elemento:hover {
+  }
+  
+  .habilidades__elemento:hover {
     transform: scale(1.1);
     box-shadow: 0 0 25px var(--color-hover);
-}
-
-.habilidades__icono {
-    width: 60px;
-    height: auto;
+  }
+  
+  .habilidades__icono {
+    font-size: 3rem;
+    color: var(--color-primario);
     margin-bottom: 10px;
-}
-
-.habilidades__elemento figcaption {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .habilidades__icono:hover {
+    transform: rotate(360deg) scale(1.2); /* Rotación y rebote */
+    color: var(--color-hover);
+  }
+  
+  .habilidades__elemento figcaption {
     color: #aaa;
     font-size: 1.1rem;
     font-weight: 600;
     text-transform: capitalize;
-}
-
-
-
-
-/* Media Queries para la sección "Habilidades" */
-
-/* Pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
+  }
+  
+  /* Media Queries para la sección "Habilidades" */
+  
+  /* Pantallas pequeñas (móviles) */
+  @media (max-width: 600px) {
     .habilidades__titulo {
-        font-size: 1.5rem;
+      font-size: 1.5rem;
     }
-
+  
     .habilidades__lista {
-        gap: 15px;
+      gap: 15px;
     }
-
+  
     .habilidades__elemento {
-        width: 100px;
-        padding: 15px;
+      width: 100px;
+      padding: 15px;
     }
-
+  
     .habilidades__icono {
-        width: 50px;
+      font-size: 2.5rem;
     }
-
+  
     .habilidades__elemento figcaption {
-        font-size: 1rem;
+      font-size: 1rem;
     }
-}
-
-/* Pantallas medianas (tabletas) */
-@media (max-width: 768px) {
-    .habilidades__titulo {
-        font-size: 1.8rem;
-    }
-
+  }
+  
+  /* Tabletas */
+  @media (min-width: 601px) and (max-width: 1023px) {
     .habilidades__elemento {
-        width: 120px;
+      width: 110px;
+      padding: 18px;
     }
-
+  
     .habilidades__icono {
-        width: 55px;
+      font-size: 2.8rem;
     }
-}
-
-/* Pantallas grandes (escritorio) */
-@media (min-width: 1024px) {
-    .habilidades__titulo {
-        font-size: 2rem;
-    }
-
+  }
+  
+  /* Escritorio */
+  @media (min-width: 1024px) {
     .habilidades__lista {
-        gap: 30px;
+      gap: 40px;
     }
-
+  
     .habilidades__elemento {
-        width: 120px;
-        padding: 20px;
+      width: 120px;
+      padding: 20px;
     }
-
+  
     .habilidades__icono {
-        width: 60px;
+      font-size: 3rem;
     }
-
-    .habilidades__elemento figcaption {
-        font-size: 1.1rem;
-    }
-}
+  }
+  
 
 
-/* Sección Formación académica */
+/* Sección Formación Académica */
 .formacion {
     background-color: #1c1c1c;
     padding: 60px 20px;
     text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
 .formacion__titulo {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     color: var(--color-primario);
     text-transform: uppercase;
     margin-bottom: 40px;
@@ -454,91 +507,123 @@ body {
 
 .formacion__lista {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.5s; /* Animación de entrada con retardo */
 }
 
 .formacion__elemento {
-    width: 200px;
-    text-align: center;
-    transition: transform var(--transicion), box-shadow var(--transicion);
+    width: 250px;
     background-color: var(--color-card);
-    border-radius: 10px;
     padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 0 15px var(--color-fondo-hover);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px); /* Inicia desplazado */
+    animation: slideUp 0.5s forwards;
 }
 
 .formacion__elemento:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px) scale(1.05);
     box-shadow: 0 0 25px var(--color-hover);
 }
 
+/* Efecto de animación de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Efecto de animación para el deslizamiento de las tarjetas */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .formacion__icono {
-    width: 80px;
+    max-width: 100%;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
 }
 
 .formacion__elemento figcaption {
     color: #aaa;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     text-transform: capitalize;
 }
 
-/* Media Queries para la sección "Formación académica" */
-
-/* Pantallas pequeñas (móviles) */
+/* Responsive: móviles */
 @media (max-width: 600px) {
     .formacion__titulo {
         font-size: 1.5rem;
     }
 
+    .formacion__lista {
+        gap: 15px;
+    }
+
     .formacion__elemento {
-        width: 150px;
+        width: 100%;
         padding: 15px;
     }
 
     .formacion__icono {
-        width: 60px;
+        max-width: 80%;
+        margin-bottom: 10px;
     }
 
     .formacion__elemento figcaption {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 }
 
-/* Pantallas medianas (tabletas) */
-@media (max-width: 768px) {
-    .formacion__titulo {
-        font-size: 1.8rem;
-    }
-
+/* Tabletas */
+@media (min-width: 601px) and (max-width: 1023px) {
     .formacion__elemento {
-        width: 180px;
+        width: 220px;
         padding: 18px;
     }
 
     .formacion__icono {
-        width: 70px;
+        max-width: 90%;
     }
 }
 
-/* Pantallas grandes (escritorio) */
+/* Escritorio */
 @media (min-width: 1024px) {
-    .formacion__titulo {
-        font-size: 2rem;
+    .formacion__lista {
+        gap: 40px;
     }
 
     .formacion__elemento {
-        width: 200px;
+        width: 250px;
+        padding: 20px;
     }
 
     .formacion__icono {
-        width: 80px;
+        max-width: 100%;
     }
 }
+
+
 
 /* Sección de Proyectos */
 .proyectos {
@@ -548,7 +633,7 @@ body {
 }
 
 .proyectos__titulo {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     color: var(--color-primario);
     margin-bottom: 40px;
 }
@@ -566,7 +651,7 @@ body {
     width: 300px;
     padding: 20px;
     box-shadow: 0 0 10px var(--color-sombra);
-    transition: transform var(--transicion), box-shadow var(--transicion);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .proyectos__item:hover {
@@ -583,7 +668,7 @@ body {
 }
 
 .proyectos__nombre {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
     color: var(--color-primario);
     margin-bottom: 10px;
 }
@@ -603,7 +688,7 @@ body {
     background-color: var(--color-primario);
     border-radius: 5px;
     text-decoration: none;
-    transition: background-color var(--transicion);
+    transition: background-color 0.3s ease-in-out;
 }
 
 .proyectos__enlace:hover {
@@ -696,6 +781,7 @@ body {
 }
 
 
+
 /* Sección Contacto */
 .contacto {
     background-color: #1c1c1c;
@@ -704,7 +790,7 @@ body {
 }
 
 .contacto__titulo {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 5vw, 2rem);
     color: var(--color-primario);
     text-transform: uppercase;
     margin-bottom: 40px;
@@ -761,7 +847,7 @@ body {
     font-weight: bold;
     border-radius: 5px;
     text-decoration: none;
-    transition: background var(--transicion);
+    transition: background-color var(--transicion), transform var(--transicion);
     display: inline-block;
     margin-bottom: 15px; /* Separa los botones */
 }
@@ -769,6 +855,7 @@ body {
 /* Efecto hover de los botones */
 .contacto__boton:hover {
     background-color: var(--color-secundario);
+    transform: scale(1.05);
 }
 
 /* Contenedor de los botones para alinear */
