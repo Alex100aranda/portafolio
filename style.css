@@ -397,6 +397,7 @@
     gap: 30px;
     max-width: 1000px;
     margin: 0 auto;
+    list-style-type: none;
   }
   
   .habilidades__elemento {
@@ -443,15 +444,18 @@
   
     .habilidades__lista {
       gap: 15px;
+      
     }
   
     .habilidades__elemento {
       width: 100px;
       padding: 15px;
+      
     }
   
     .habilidades__icono {
       font-size: 2.5rem;
+      
     }
   
     .habilidades__elemento figcaption {
@@ -513,6 +517,7 @@
     max-width: 1000px;
     margin: 0 auto;
     opacity: 0;
+    list-style-type: none;
     animation: fadeIn 1s forwards 0.5s; /* Animación de entrada con retardo */
 }
 
