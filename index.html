@@ -45,7 +45,9 @@
     </figure>
   
     <div class="presentacion__contenido" data-aos="fade-up" data-aos-delay="100">
-      <h1 class="presentacion__titulo">Hola, mi nombre es Alejandro Hernández y creo sitios web</h1>
+        <h1 class="presentacion__titulo">
+         Hola, mi nombre es Alejandro Hernández y <span id="efecto-texto">creo sitios web</span>
+        </h1>
       <p class="presentacion__subtitulo">
         Soy Ingeniero en desarrollo de software y actualmente participo en el proyecto <strong>Oracle ONE</strong> de <strong>Alura Latam</strong>.
       </p>
@@ -145,19 +147,19 @@
         <li class="formacion__elemento" data-aos="fade-up" data-aos-delay="100">
             <figure>
                 <img class="formacion__icono" src="assets/unadm.png" alt="UnADM">
-                <figcaption>Ing. en desarrollo de software (2020)</figcaption>
+                <figcaption>Ing. en desarrollo de software</figcaption>
             </figure>
         </li>
         <li class="formacion__elemento" data-aos="fade-up" data-aos-delay="200">
             <figure>
                 <img class="formacion__icono" src="assets/alura_logo.png" alt="Alura">
-                <figcaption>Oracle Next Education (ONE) (2024)</figcaption>
+                <figcaption>Oracle Next Education (ONE)</figcaption>
             </figure>
         </li>
         <li class="formacion__elemento" data-aos="fade-up" data-aos-delay="300">
             <figure>
                 <img class="formacion__icono" src="assets/ctec.png" alt="CTEC">
-                <figcaption>Taller de JavaScript (2023)</figcaption>
+                <figcaption>Taller de JavaScript</figcaption>
             </figure>
         </li>
     </ul>
@@ -170,14 +172,6 @@
 <section class="proyectos" id="proyectos">
     <h2 class="proyectos__titulo" data-aos="fade-up">Proyectos</h2>
     <div class="proyectos__contenedor">
-        <!-- Proyectos php -->
-        <div class="proyectos__item" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/php.jpg" alt="Proyecto 1" class="proyectos__imagen">
-            <h3 class="proyectos__nombre">Proyectos PHP</h3>
-            <p class="proyectos__descripcion">Sistemas de registro en php</p>
-            <a href="proyectosphp.html" class="proyectos__enlace" target="_blank">Ver proyectos</a>
-        </div>
-        
         <!-- Proyectos web -->
         <div class="proyectos__item" data-aos="fade-up" data-aos-delay="200">
             <img src="assets/html.jpg" alt="Proyecto 2" class="proyectos__imagen">
@@ -185,15 +179,20 @@
             <p class="proyectos__descripcion">Paginas web con HTML y css</p>
             <a href="proyectosweb.html" class="proyectos__enlace" target="_blank">Ver Proyectos</a>
         </div>
-        
+           <!-- Proyectos php -->
+           <div class="proyectos__item" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/php.jpg" alt="Proyecto 1" class="proyectos__imagen">
+            <h3 class="proyectos__nombre">Proyectos PHP</h3>
+            <p class="proyectos__descripcion">Sistemas de registro en php</p>
+            <a href="proyectosphp.html" class="proyectos__enlace" target="_blank">Ver proyectos</a>
+        </div>
         <!-- Proyectos js -->
         <div class="proyectos__item" data-aos="fade-up" data-aos-delay="300">
             <img src="assets/javascript.jpg" alt="Proyecto 3" class="proyectos__imagen">
             <h3 class="proyectos__nombre">JavaScript</h3>
             <p class="proyectos__descripcion">Proyectos JavaScript</p>
             <a href="proyectosjs.html" class="proyectos__enlace" target="_blank">Ver Proyectos</a>
-        </div>
-        
+        </div>  
         <!-- Proyectos Digitales -->
         <div class="proyectos__item" data-aos="fade-up" data-aos-delay="400">
             <img src="assets/digitales.jpg" alt="Proyecto 4" class="proyectos__imagen">
@@ -235,8 +234,22 @@
             </form>
         </div>
     </section>
+
+
+    <!-- Footer -->
+    <footer class="footer" data-aos="fade" data-aos-duration="1000">
+      <div class="footer-content">
+        <p><i class="fas fa-code"></i> Desarrollado por <strong>Alejandro Hernández</strong> &copy; 2025</p>
+        <div class="footer-icons">
+          <a href="https://github.com/tuusuario" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/tuusuario" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:tuemail@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </footer>
     
-    <footer class="footer">Desarrollado por Alejandro Hernández 2025</footer>
+    
+    
 
     <script src="script.js"></script>
 
@@ -262,6 +275,44 @@
       });
     });
   </script>
+
+
+<!-- Funcion efecto texto letras -->
+<script>
+  const textoOriginal = "creo sitios web";
+  const spanAnimado = document.getElementById('efecto-texto');
+
+  function escribirTexto(texto, velocidad = 200) {
+    spanAnimado.textContent = "";
+    let index = 0;
+
+    const escribir = setInterval(() => {
+      spanAnimado.textContent += texto[index];
+      index++;
+      if (index === texto.length) {
+        clearInterval(escribir);
+        setTimeout(() => borrarTexto(texto), 1000);
+      }
+    }, velocidad);
+  }
+
+  function borrarTexto(texto, velocidad = 200) {
+    let index = texto.length;
+
+    const borrar = setInterval(() => {
+      spanAnimado.textContent = texto.slice(0, index);
+      index--;
+      if (index < 0) {
+        clearInterval(borrar);
+        setTimeout(() => escribirTexto(texto), 1000);
+      }
+    }, velocidad);
+  }
+
+  // Inicia el ciclo
+  escribirTexto(textoOriginal);
+</script>
+
 
 </body>
 </html>
