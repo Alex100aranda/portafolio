@@ -326,7 +326,7 @@
   }
   
   .sobre-mi__texto {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     color: var(--color-texto);
     line-height: 1.7;
   }
@@ -342,7 +342,7 @@
     }
   
     .sobre-mi__texto {
-      font-size: 1rem;
+      font-size: 1.3rem;
     }
   }
   
@@ -788,37 +788,73 @@
 
 
 /* Sección Contacto */
+/* Sección Contacto */
 .contacto {
     background-color: #1c1c1c;
     padding: 60px 20px;
     text-align: center;
 }
 
+/* Título */
 .contacto__titulo {
-    font-size: clamp(1.8rem, 5vw, 2rem);
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: var(--color-primario);
     text-transform: uppercase;
     margin-bottom: 40px;
+    letter-spacing: 2px;
 }
 
+/* Contenedor principal */
 .contacto__contenedor {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Contenedor de imagen */
+.contacto__contenido {
+    flex: 1;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
 }
 
+/* Imagen de contacto */
 .contacto__imagen {
-    width: 300px;
-    margin-right: 40px;
+    max-width: 100%;
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+    transition: transform 0.3s ease;
 }
 
+.contacto__imagen:hover {
+    transform: scale(1.05);
+}
+
+/* Formulario */
 .contacto__formulario {
-    max-width: 400px;
+    flex: 1;
+    max-width: 480px;
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.02);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
     text-align: left;
 }
 
+/* Grupos del formulario */
+.form__grupo {
+    margin-bottom: 1.5rem;
+}
+
+/* Etiquetas */
 .contacto__label {
     display: block;
     color: var(--color-texto);
@@ -826,81 +862,66 @@
     font-weight: bold;
 }
 
-.contacto__input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #444;
-    border-radius: 5px;
+/* Inputs y textarea */
+.contacto__input,
+textarea.contacto__input {
     background-color: var(--color-fondo-form);
     color: var(--color-texto);
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
     font-size: 1.1rem;
-    transition: border var(--transicion);
+    width: 100%;
+    transition: border-color 0.3s ease;
 }
 
-.contacto__input:focus {
+.contacto__input:focus,
+textarea.contacto__input:focus {
     border-color: var(--color-primario);
     outline: none;
 }
 
-/* Estilo de los botones */
+/* Botones */
+.contacto__botones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
 .contacto__boton {
-    padding: 12px 20px;
+    padding: 14px 24px;
     background-color: var(--color-primario);
     color: white;
     font-size: 1.1rem;
     font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color var(--transicion), transform var(--transicion);
+    border-radius: 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     display: inline-block;
-    margin-bottom: 15px; /* Separa los botones */
 }
 
-/* Efecto hover de los botones */
 .contacto__boton:hover {
     background-color: var(--color-secundario);
     transform: scale(1.05);
 }
 
-/* Contenedor de los botones para alinear */
-.contacto__botones {
-    display: flex;
-    justify-content: center; /* Centra los botones horizontalmente */
-    gap: 1rem; /* Espacio entre los botones */
-    margin-top: 1rem; /* Espacio encima de los botones */
-    flex-wrap: wrap; /* Los botones se apilarán si el espacio es insuficiente */
+/* Botón regresar (extra margen opcional) */
+.regresar__boton--grande {
+    margin-left: 10px;
 }
 
-/* Media query para pantallas pequeñas (móviles) */
-@media (max-width: 767px) {
-    .contacto__contenedor {
-        flex-direction: column; /* Los elementos se alinean verticalmente */
-        align-items: center; /* Centra los elementos */
-        justify-content: center; /* Alinea los elementos a la misma altura */
-    }
-
-    .contacto__botones {
-        flex-direction: column; /* Los botones se apilarán en pantallas pequeñas */
-        align-items: center; /* Centra los botones verticalmente */
-    }
-
-    .contacto__boton {
-        width: 80%; /* Hace que los botones sean más anchos en pantallas pequeñas */
-    }
-}
-
-/* Pantallas medianas (tabletas) */
-@media (max-width: 768px) {
+/* Responsive: tablets y móviles */
+@media (max-width: 1024px) {
     .contacto__titulo {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .contacto__imagen {
         width: 280px;
-        margin-right: 30px;
-        margin-left: 60px; /* Ajusta el valor según el espacio que quieras */
-        margin-bottom: 30px; /* Añade más espacio entre la imagen y el formulario */
     }
 
     .contacto__formulario {
@@ -908,34 +929,21 @@
     }
 }
 
-/* Pantallas grandes (escritorio) */
-@media (min-width: 1024px) {
-    .contacto__titulo {
-        font-size: 2rem;
+@media (max-width: 768px) {
+    .contacto__contenedor {
+        flex-direction: column;
+        padding: 1rem;
     }
 
-    .contacto__imagen {
-        width: 300px;
-        margin-bottom: 40px; /* Añade espacio entre la imagen y el formulario */
+    .contacto__botones {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .contacto__formulario {
-        max-width: 400px;
+    .contacto__boton {
+        width: 100%;
+        max-width: 300px;
     }
-}
-
-
-
-
-
-/* Modificación para separar los dos botones en el formulario de contacto */
-.contacto__boton {
-    margin-right: 10px; /* Añade espacio a la derecha del botón "Enviar mensaje" */
-}
-
-/* Solo para el botón "Regresar al menú", si es necesario */
-.regresar__boton--grande {
-    margin-left: 10px; /* Añade espacio a la izquierda del botón "Regresar al menú" */
 }
 
 

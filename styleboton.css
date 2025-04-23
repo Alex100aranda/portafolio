@@ -1,0 +1,43 @@
+/* Contenedor centrado */
+.boton-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  /* Estilo del botón */
+  .proyectos__enlace {
+    background-color: #00ff99; /* verde neón */
+    color: #000;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    
+  }
+  
+  /* Hover */
+  .proyectos__enlace:hover {
+    transform: scale(1.05);
+    
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .proyectos__enlace {
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .proyectos__enlace {
+      width: 100%;
+      text-align: center;
+      font-size: 1rem;
+    }
+  }
+  
